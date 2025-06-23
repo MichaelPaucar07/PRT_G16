@@ -52,25 +52,32 @@ It is intended for institutions or companies that require internal control of bo
 
 ## 🚀 Project Installation (Django Backend)
 
-```bash
-# Clone the repository
-git clone https://github.com/MichaelPaucar07/PRT_G16.git
-cd PRT_G16
+1. **Installation:**
 
-# Create and activate a virtual environment
-python -m venv venv
-venv\Scripts\activate  # For Windows
+    ```bash
+    # Clone the repository
+    git clone https://github.com/MichaelPaucar07/PRT_G16.git
+    cd PRT_G16
 
-# Install dependencies
-pip install -r requirements.txt
+    # Create and activate a virtual environment
+    python -m venv venv
+    venv\Scripts\activate  # For Windows
 
-# Run initial migrations
-python manage.py makemigrations
-python manage.py migrate
+    # Install dependencies
+    pip install -r requirements.txt
 
-# Start the development server
-python manage.py runserver
+    # Run initial migrations
+    python manage.py makemigrations
+    python manage.py migrate
+2. **Start the application:**
 
+    python manage.py runserver
+
+## Quick Start
+
+1. **Run the application:**
+   ```bash
+   python manage.py runserver
 
 <!-- Support Section -->
 ## Support
