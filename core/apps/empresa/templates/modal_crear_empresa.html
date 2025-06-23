@@ -1,0 +1,70 @@
+{% load form_filters %}
+
+<div class="modal fade" id="modalCrearEmpresa" tabindex="-1" aria-labelledby="modalCrearEmpresaLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-centered">
+    <div class="modal-content empresa-modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="modalCrearEmpresaLabel">
+          {% if empresa %}Actualizar Información de la Empresa{% else %}Agregar Información de la Empresa{% endif %}
+        </h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+      </div>
+
+      <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="modal-body">
+          <div class="row g-4">
+            <div class="col-md-6">
+              <label class="form-label">Nombre</label>
+              {{ form.nombre|add_class:"form-control" }}
+              {{ form.nombre.errors }}
+            </div>
+
+            <div class="col-md-6">
+              <label class="form-label">Dirección</label>
+              {{ form.direccion|add_class:"form-control" }}
+              {{ form.direccion.errors }}
+            </div>
+
+            <div class="col-md-6">
+              <label class="form-label">Año de Fundación</label>
+              {{ form.año_fundacion|add_class:"form-control" }}
+              {{ form.año_fundacion.errors }}
+            </div>
+
+            <div class="col-md-6">
+              <label class="form-label">RUC</label>
+              {{ form.RUC|add_class:"form-control" }}
+              {{ form.RUC.errors }}
+            </div>
+
+            <div class="col-12">
+              <label class="form-label">Misión</label>
+              {{ form.mision|add_class:"form-control" }}
+              {{ form.mision.errors }}
+            </div>
+
+            <div class="col-12">
+              <label class="form-label">Visión</label>
+              {{ form.vision|add_class:"form-control" }}
+              {{ form.vision.errors }}
+            </div>
+
+            <div class="col-12">
+              <label class="form-label">Imagen</label>
+              {{ form.imagen|add_class:"form-control" }}
+              {{ form.imagen.errors }}
+            </div>
+          </div>
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+          <button type="submit" class="btn btn-primary">
+            {% if empresa %}Actualizar{% else %}Guardar{% endif %}
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

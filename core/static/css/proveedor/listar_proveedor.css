@@ -1,0 +1,106 @@
+/* Contenedor general */
+.proveedores-container {
+  padding: 40px 20px;
+  background-color: #f5f7fa;
+  min-height: 100vh;
+}
+
+/* Tarjeta */
+.card-proveedor {
+  background-color: #ffffff;
+  border-radius: 14px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: none;
+  overflow: hidden;
+}
+
+.card-proveedor:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
+}
+
+/* Cuerpo de la tarjeta */
+.card-proveedor .card-body {
+  padding: 20px;
+}
+
+.card-proveedor .card-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: #333333;
+  margin-bottom: 15px;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 5px;
+  text-transform: uppercase;
+}
+
+/* Texto info */
+.card-proveedor .card-body p {
+  margin: 6px 0;
+  color: #555;
+  font-size: 15px;
+}
+
+/* Footer con íconos */
+.card-proveedor .card-footer {
+  background-color: #fafafa;
+  padding: 12px 16px;
+  border-top: 1px solid #eee;
+  display: flex;
+  justify-content: flex-end;
+  gap: 15px;
+}
+
+.card-proveedor .card-footer a {
+  font-size: 18px;
+  transition: color 0.3s ease;
+}
+
+.card-proveedor .card-footer a.text-primary:hover {
+  color: #0d6efd;
+}
+
+.card-proveedor .card-footer a.text-danger:hover {
+  color: #dc3545;
+}
+
+/* Botón superior */
+.btn-outline-dark {
+  font-weight: bold;
+  border-radius: 8px;
+  padding: 10px 20px;
+  transition: all 0.3s ease-in-out;
+}
+
+.btn-outline-dark:hover {
+  background-color: #343a40;
+  color: #fff;
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1050;
+  padding: 20px;
+}
+
+.modal-style-container {
+  background: #fff;
+  border-radius: 1rem;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+  max-width: 850px;
+  width: 100%;
+}
+
+.card-body img {
+  border-radius: 3px;
+  box-shadow: 0 0 2px rgba(0,0,0,0.2);
+}

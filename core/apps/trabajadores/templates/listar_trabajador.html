@@ -1,0 +1,49 @@
+{% extends 'base_generic.html' %}
+{% load static %}
+
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/trabajadores/listar_trabajador.css' %}">
+
+<div class="trabajadores-container">
+  <div class="header">
+    <h2>NUESTRO PERSONAL</h2>
+    <a href="{% url 'crear_trabajador' %}" class="btn-agregar">
+      <i class="fas fa-plus"></i> AGREGAR TRABAJADOR
+    </a>
+  </div>
+
+  <div class="grid-trabajadores">
+    {% for trabajador in trabajadores %}
+    <div class="trabajador-card">
+      <div class="imagen-colaborador">
+        {% if trabajador.imagen %}
+          <img src="{{ trabajador.imagen.url }}" alt="{{ trabajador.nombre }}">
+        {% else %}
+          <span>IMAGEN DEL COLABORADOR</span>
+        {% endif %}
+      </div>
+      <div class="info-colaborador">
+        <div class="titulo">
+  <strong>{{ trabajador.nombre }} {{ trabajador.apellido }}</strong>
+  <div class="iconos-acciones">
+    <a href="{% url 'actualizar_trabajador' trabajador.pk %}" class="icono-editar" title="Editar">
+      <i class="fas fa-pen"></i>
+    </a>
+    <a href="{% url 'eliminar_trabajador' trabajador.pk %}" class="icono-eliminar" title="Eliminar">
+      <i class="fas fa-trash"></i>
+    </a>
+  </div>
+</div>
+
+
+        <p>{{ trabajador.correo }}</p>
+        <p><strong>Código de empleado:</strong> {{ trabajador.codigo_empleado }}</p>
+        <div class="datos-extra">
+          <p><strong>Cédula:</strong> {{ trabajador.cedula }}</p>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+{% endblock %}

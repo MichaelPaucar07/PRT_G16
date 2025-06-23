@@ -1,0 +1,71 @@
+{% extends 'base_generic.html' %}
+{% load static %}
+
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/trabajadores/crear_trabajador.css' %}">
+
+<div class="modal-overlay">
+  <div class="modal-style-container">
+    <div class="card shadow-lg rounded-4">
+      <div class="card-header bg-warning text-dark rounded-top-4 d-flex justify-content-between align-items-center">
+        <h4 class="m-0"><i class="fas fa-user-edit me-2"></i> Editar Trabajador</h4>
+        <button class="btn-close" aria-label="Cerrar" onclick="cerrarModal()"></button>
+      </div>
+
+      <form method="POST" enctype="multipart/form-data" class="p-4">
+        {% csrf_token %}
+        <div class="row">
+  <!-- Columna de campos -->
+  <div class="col-md-8">
+    <div class="row">
+      <div class="col-md-6 mb-3">
+        {{ form.nombre.label_tag }} {{ form.nombre }}
+      </div>
+      <div class="col-md-6 mb-3">
+        {{ form.apellido.label_tag }} {{ form.apellido }}
+      </div>
+      <div class="col-md-6 mb-3">
+        {{ form.cedula.label_tag }} {{ form.cedula }}
+      </div>
+      <div class="col-md-6 mb-3">
+        {{ form.codigo_empleado.label_tag }} {{ form.codigo_empleado }}
+      </div>
+      <div class="col-md-12 mb-3">
+        {{ form.correo.label_tag }} {{ form.correo }}
+      </div>
+      <div class="col-md-12 mb-3">
+        {{ form.imagen.label_tag }} {{ form.imagen }}
+      </div>
+    </div>
+  </div>
+
+  <!-- Columna de imagen -->
+  <div class="col-md-4 d-flex justify-content-center align-items-start">
+    <div class="preview-container mt-2">
+      <img id="imagen-preview" 
+           src="{% if form.instance.imagen %}{{ form.instance.imagen.url }}{% else %}{% static 'img/placeholder.jpg' %}{% endif %}" 
+           alt="Vista previa" 
+           class="img-thumbnail" 
+           style="max-height: 220px; object-fit: cover;">
+    </div>
+  </div>
+</div>
+        <div class="d-flex justify-content-end mt-4 gap-2">
+          <button type="submit" class="btn btn-success">
+            <i class="fas fa-save me-1"></i> Guardar Cambios
+          </button>
+          <a href="{% url 'listar_trabajador' %}" class="btn btn-danger">
+            <i class="fas fa-times me-1"></i> Cancelar
+          </a>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<script>
+  function cerrarModal() {
+    window.location.href = "{% url 'listar_trabajador' %}";
+  }
+</script>
+{% endblock %}

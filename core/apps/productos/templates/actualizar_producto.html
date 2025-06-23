@@ -1,0 +1,65 @@
+{% extends 'base_generic.html' %}
+{% load static %}
+
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/productos/editar_producto.css' %}">
+<div class="modal-overlay">
+  <div class="modal-style-container-sm">
+    <div class="card shadow rounded-4">
+      <div class="card-header bg-warning text-dark rounded-top-4 d-flex justify-content-between align-items-center">
+        <h5 class="m-0"><i class="fas fa-box-open me-2"></i> Editar Producto</h5>
+        <button class="btn-close" aria-label="Cerrar" onclick="cerrarModal()"></button>
+      </div>
+      <form method="POST" enctype="multipart/form-data" class="p-4">
+        {% csrf_token %}
+
+        <div class="row">
+          <div class="col-md-6 mb-3">
+            {{ form.nombre.label_tag }} {{ form.nombre }}
+          </div>
+          <div class="col-md-6 mb-3">
+            {{ form.precio.label_tag }} {{ form.precio }}
+          </div>
+          <div class="col-md-6 mb-3">
+            {{ form.IVA.label_tag }} {{ form.IVA }}
+          </div>
+          <div class="col-12 mb-3">
+            {{ form.descripcion.label_tag }} {{ form.descripcion }}
+          </div>
+        </div>
+        {% if form.instance.imagen %}
+        <div class="row align-items-start mb-3">
+          <div class="col-md-6 text-center">
+            <img src="{{ form.instance.imagen.url }}" alt="Vista previa del producto" class="img-preview mb-2">
+          </div>
+          <div class="col-md-6">
+            <div class="mb-2">
+              <label class="form-label">Imagen actual:</label><br>
+              <a href="{{ form.instance.imagen.url }}" target="_blank">{{ form.instance.imagen.name }}</a>
+            </div>
+            <div class="mb-2">
+              <label for="{{ form.imagen.id_for_label }}">Cambiar imagen:</label>
+              {{ form.imagen }}
+            </div>
+          </div>
+        </div>
+        {% endif %}
+
+        <div class="d-flex justify-content-end gap-2 mt-4">
+          <button type="submit" class="btn btn-success">
+            <i class="fas fa-save me-1"></i> Guardar Cambios
+          </button>
+          <a href="{% url 'listar_producto' %}" class="btn btn-danger">
+            <i class="fas fa-times me-1"></i> Cancelar
+          </a>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+<script>
+  function cerrarModal() {
+    window.location.href = "{% url 'listar_producto' %}";
+  }
+</script>
+{% endblock %}

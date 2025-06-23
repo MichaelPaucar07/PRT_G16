@@ -1,0 +1,53 @@
+<!-- Modal de Edición de Empresa -->
+<div class="modal fade" id="modalCrearEmpresa" tabindex="-1" aria-labelledby="modalEmpresaLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-centered">
+    <div class="modal-content shadow-lg rounded-4">
+      <div class="modal-header bg-primary text-white rounded-top-4">
+        <h5 class="modal-title" id="modalEmpresaLabel">Editar Información de la Empresa</h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+      </div>
+
+      <form method="POST" enctype="multipart/form-data" class="px-4 py-3">
+        {% csrf_token %}
+        <div class="row g-3">
+          <div class="col-md-6">
+            <label class="form-label">Nombre</label>
+            {{ form.nombre }}
+          </div>
+          <div class="col-md-6">
+            <label class="form-label">Dirección</label>
+            {{ form.direccion }}
+          </div>
+
+          <div class="col-md-6">
+            <label class="form-label">Misión</label>
+            {{ form.mision }}
+          </div>
+          <div class="col-md-6">
+            <label class="form-label">Visión</label>
+            {{ form.vision }}
+          </div>
+
+          <div class="col-md-6">
+            <label class="form-label">Año de Fundación</label>
+            {{ form.año_fundacion }}
+          </div>
+          <div class="col-md-6">
+            <label class="form-label">RUC</label>
+            {{ form.RUC }}
+          </div>
+
+          <div class="col-12">
+            <label class="form-label">Imagen</label>
+            {{ form.imagen }}
+          </div>
+        </div>
+
+        <div class="modal-footer border-top-0 mt-3">
+          <button type="submit" class="btn btn-success">Guardar</button>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

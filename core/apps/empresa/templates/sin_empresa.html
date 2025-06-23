@@ -1,0 +1,14 @@
+{% extends 'base_generic.html' %}
+
+{% block content %}
+<div class="no-data-container">
+  <div class="no-data-box">
+    <h1 class="no-data-title">NO SE HA INGRESADO INFORMACIÓN DE LA EMPRESA</h1>
+    <!-- Este botón solo abre el modal -->
+    <a href="#" class="btn-add-info" data-bs-toggle="modal" data-bs-target="#modalCrearEmpresa">AGREGAR INFORMACIÓN</a>
+  </div>
+</div>
+
+<!-- Modal importado correctamente -->
+{% include 'modal_crear_empresa.html' %}
+{% endblock %}

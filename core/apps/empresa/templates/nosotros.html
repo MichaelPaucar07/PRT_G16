@@ -1,0 +1,48 @@
+{% extends 'base_generic.html' %}
+{% load static %}
+
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/empresa/nosotros.css' %}">
+
+<div class="empresa-container">
+  <div class="empresa-header text-center">
+    <div class="text-end pe-3">
+      <button class="btn-editar" data-bs-toggle="modal" data-bs-target="#modalCrearEmpresa">
+        Editar Información
+      </button>
+    </div>
+  </div>
+
+  <div class="empresa-body row justify-content-center mt-4">
+    <div class="col-md-4 datos-col">
+      <div class="empresa-info text-center">
+        <p> {{ empresa.nombre }}</p>
+        <p><strong>RUC:</strong> {{ empresa.RUC }}</p>
+        <p><strong>Dirección:</strong> {{ empresa.direccion }}</p>
+        <div class="empresa-logo-circle mx-auto">
+          {% if empresa.imagen %}
+            <img src="{{ empresa.imagen.url }}" alt="Imagen Empresa" class="img-fluid rounded-circle">
+          {% else %}
+            <div class="empresa-logo-placeholder">Imagen Empresa</div>
+          {% endif %}
+        </div>
+        <p class="mt-2"><strong>Año de Fundación:</strong> {{ empresa.año_fundacion }}</p>
+      </div>
+    </div>
+
+    <div class="col-md-6">
+      <div class="empresa-card mb-3">
+        <h2 class="titulo-seccion">Misión</h2>
+        <p>{{ empresa.mision }}</p>
+      </div>
+      <div class="empresa-card">
+        <h2 class="titulo-seccion">Visión</h2>
+        <p>{{ empresa.vision }}</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal de edición -->
+{% include "modal_empresa.html" %}
+{% endblock %}

@@ -1,0 +1,56 @@
+{% extends 'base_generic.html' %}
+{% load static %}
+
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/proveedor/editar_proveedor.css' %}">
+
+<div class="modal-overlay">
+  <div class="modal-style-container">
+    <div class="card shadow-lg rounded-4">
+      <div class="card-header bg-warning text-dark rounded-top-4 d-flex justify-content-between align-items-center">
+        <h4 class="m-0"><i class="fas fa-truck me-2"></i> Editar Proveedor</h4>
+        <button class="btn-close" onclick="cerrarModal()" aria-label="Cerrar"></button>
+      </div>
+
+      <form method="POST" class="p-4">
+        {% csrf_token %}
+        <div class="row">
+          <div class="col-md-6 mb-3">
+            {{ form.nombre.label_tag }} {{ form.nombre }}
+          </div>
+          <div class="col-md-6 mb-3">
+            {{ form.telefono.label_tag }} {{ form.telefono }}
+          </div>
+          <div class="col-md-6 mb-3">
+            {{ form.correo.label_tag }} {{ form.correo }}
+          </div>
+          <div class="col-md-6 mb-3">
+            {{ form.pais.label_tag }} {{ form.pais }}
+          </div>
+          <div class="col-12 mb-3">
+            {{ form.direccion.label_tag }} {{ form.direccion }}
+          </div>
+          <div class="col-12 mb-3">
+            {{ form.descripcion.label_tag }} {{ form.descripcion }}
+          </div>
+        </div>
+
+        <div class="d-flex justify-content-end mt-4 gap-2">
+          <button type="submit" class="btn btn-success">
+            <i class="fas fa-save me-1"></i> Guardar Cambios
+          </button>
+          <a href="{% url 'listar_proveedor' %}" class="btn btn-danger">
+            <i class="fas fa-times me-1"></i> Cancelar
+          </a>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<script>
+  function cerrarModal() {
+    window.location.href = "{% url 'listar_proveedor' %}";
+  }
+</script>
+{% endblock %}

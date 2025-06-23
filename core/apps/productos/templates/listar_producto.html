@@ -1,0 +1,39 @@
+{% extends 'base_generic.html' %}
+{% load static %}
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/productos/listar_producto.css' %}">
+<div class="productos-container">
+  <div class="header">
+    <h2>NUESTROS PRODUCTOS</h2>
+    <a href="{% url 'crear_producto' %}" class="btn-agregar">
+      <i class="fas fa-plus"></i> AGREGAR PRODUCTO
+    </a>
+  </div>
+  <div class="grid-productos">
+    {% for producto in productos %}
+      <div class="producto-card">
+        <div class="imagen-producto">
+          {% if producto.imagen %}
+            <img src="{{ producto.imagen.url }}" alt="{{ producto.nombre }}">
+          {% else %}
+            <span>IMAGEN DEL PRODUCTO</span>
+          {% endif %}
+        </div>
+        <div class="info-producto">
+          <div class="nombre-producto"><strong>{{ producto.nombre|upper }}</strong></div>
+          <p><strong>Precio:</strong> ${{ producto.precio }}</p>
+          <p><strong>Descripcion:</strong> {{ producto.descripcion }}</p>
+          <p><strong>IVA:</strong> {{ producto.IVA }}%</p>
+
+          <div class="iconos-acciones">
+            <a href="{% url 'actualizar_producto' producto.pk %}" title="Editar"><i class="fas fa-pen"></i></a>
+            <a href="{% url 'eliminar_producto' producto.pk %}" title="Eliminar"><i class="fas fa-trash"></i></a>
+          </div>
+        </div>
+      </div>
+    {% empty %}
+      <p>No hay productos registrados.</p>
+    {% endfor %}
+  </div>
+</div>
+{% endblock %}

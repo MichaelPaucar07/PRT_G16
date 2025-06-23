@@ -1,0 +1,45 @@
+{% extends 'base_generic.html' %}
+{% load static %}
+
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/trabajadores/crear_trabajador.css' %}">
+
+<div class="modal-overlay">
+  <div class="modal-style-container">
+    <div class="card shadow-lg rounded-4">
+      <div class="card-header bg-primary text-white rounded-top-4 d-flex justify-content-between align-items-center">
+        <h4 class="m-0"><i class="fas fa-user-plus me-2"></i> Agregar Nuevo Trabajador</h4>
+      </div>
+
+      <form method="POST" enctype="multipart/form-data" class="p-4">
+        {% csrf_token %}
+        <div class="row">
+          <div class="col-md-6 mb-3">
+            {{ form.nombre.label_tag }} {{ form.nombre }}
+          </div>
+          <div class="col-md-6 mb-3">
+            {{ form.apellido.label_tag }} {{ form.apellido }}
+          </div>
+          <div class="col-md-6 mb-3">
+            {{ form.cedula.label_tag }} {{ form.cedula }}
+          </div>
+          <div class="col-md-6 mb-3">
+            {{ form.codigo_empleado.label_tag }} {{ form.codigo_empleado }}
+          </div>
+          <div class="col-md-6 mb-3">
+            {{ form.correo.label_tag }} {{ form.correo }}
+          </div>
+          <div class="col-md-6 mb-3">
+            {{ form.imagen.label_tag }} {{ form.imagen }}
+          </div>
+        </div>
+
+        <div class="d-flex justify-content-end mt-4 gap-2">
+          <button type="submit" class="btn btn-success"><i class="fas fa-save me-1"></i> Guardar</button>
+          <a href="{% url 'listar_trabajador' %}" class="btn btn-danger"><i class="fas fa-times me-1"></i> Cancelar</a>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,120 @@
+/* === Reset general === */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f3f5f9;
+  color: #2d2d2d;
+}
+
+/* === Contenedor principal === */
+.empresa-container {
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 20px;
+}
+
+/* === Botón editar === */
+.btn-editar {
+  background-color: #4a0d7c;
+  color: white;
+  font-weight: 600;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  margin: 0 auto 20px;
+  display: block;
+  text-align: center;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  transition: background-color 0.3s ease;
+}
+
+.btn-editar:hover {
+  background-color: #390a61;
+}
+
+/* === Layout cuerpo === */
+.empresa-body {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  justify-content: center;
+}
+
+/* === Columna de datos === */
+.datos-col {
+  flex: 1 1 300px;
+  max-width: 350px;
+}
+
+.empresa-info {
+  background-color: #ffffff;
+  padding: 25px;
+  border-radius: 15px;
+  text-align: center;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+}
+
+.empresa-info p {
+  margin-bottom: 12px;
+}
+
+.empresa-info strong {
+  color: #000;
+}
+
+/* === Imagen circular === */
+.empresa-logo-circle {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin: 20px auto;
+  border: 2px solid #ccc;
+}
+
+.empresa-logo-circle img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.empresa-logo-placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  color: #666;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+/* === Misión y Visión === */
+.empresa-card {
+  background-color: #ffffff;
+  padding: 25px 30px;
+  border-radius: 15px;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+  flex: 1 1 400px;
+}
+
+.titulo-seccion {
+  border-left: 4px solid #4a0d7c;
+  padding-left: 10px;
+  margin-bottom: 10px;
+  color: #4a0d7c;
+  font-weight: 600;
+}
+
+/* === Footer fix (opcional si lo usas) === */
+footer {
+  margin-top: auto;
+  padding: 20px;
+  text-align: center;
+  background-color: #4a0d7c;
+  color: white;
+}

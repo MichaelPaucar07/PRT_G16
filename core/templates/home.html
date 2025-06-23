@@ -1,0 +1,73 @@
+{% extends 'base_generic.html' %}
+{% load static %}
+
+{% block content %}
+<main class="container mt-5 fade-in cube-main">
+   <div class="row align-items-center mb-5 section-cube">
+      <div class="col-lg-6 mb-4">
+         <div id="carouselCubeDesc" class="carousel slide carousel-cube" data-bs-ride="carousel">
+            <div id="carouselCubeDesc" class="carousel slide carousel-cube" data-bs-ride="carousel">
+               <div class="carousel-inner rounded shadow-lg cube-carousel-container">
+                  <div class="carousel-item active">
+                     <img src="{% static 'img/descriptions/descripcion1.jpg' %}" class="d-block w-100 cube-img-rounded" alt="Descripción 1">
+                  </div>
+                  <div class="carousel-item">
+                     <img src="{% static 'img/descriptions/descripcion2.jpg' %}" class="d-block w-100 cube-img-rounded" alt="Descripción 2">
+                  </div>
+                  <div class="carousel-item">
+                     <img src="{% static 'img/descriptions/descripcion3.jpg' %}" class="d-block w-100 cube-img-rounded" alt="Descripción 3">
+                  </div>
+                  <div class="carousel-item">
+                     <img src="{% static 'img/descriptions/descripcion4.jpg' %}" class="d-block w-100 cube-img-rounded" alt="Descripción 4">
+                  </div>
+               </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselCubeDesc" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon"></span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselCubeDesc" data-bs-slide="next">
+            <span class="carousel-control-next-icon"></span>
+            </button>
+         </div>
+      </div>
+      <div class="col-lg-6">
+         <h2 class="cube-section-title">Quiénes Somos</h2>
+         <p class="cube-section-text">
+            En <strong>Cube Games</strong> nos apasiona reunir a las personas en torno al juego. Ofrecemos una amplia variedad de juegos de mesa, cartas coleccionables y accesorios gamer para disfrutar experiencias únicas, estratégicas y llenas de diversión.
+         </p>
+      </div>
+   </div>
+   <div class="row align-items-center mb-5 section-cube">
+      <div class="col-lg-6 order-lg-1 order-2">
+         <h2 class="cube-section-title">Nuestra Historia</h2>
+         <p class="cube-section-text">
+            Fundada en 2015 en Milagro - Ecuador, Cube Games nació de una comunidad apasionada por la estrategia, el rol y la cultura geek. Hoy somos un punto de encuentro para jugadores de todas las edades que valoran la creatividad, la interacción y la innovación.
+         </p>
+      </div>
+      <div class="col-lg-6 order-lg-2 order-1 mb-4">
+         <div id="carouselCubeHistory" class="carousel slide carousel-cube" data-bs-ride="carousel">
+            <div class="carousel-inner rounded shadow-lg cube-carousel-container">
+               <div class="carousel-item active">
+                  <img src="{% static 'img/history/historia1.jpeg' %}" class="d-block w-100 cube-img-rounded" alt="Historia 1">
+               </div>
+               <div class="carousel-item">
+                  <img src="{% static 'img/history/historia2.jpg' %}" class="d-block w-100 cube-img-rounded" alt="Historia 2">
+               </div>
+               <div class="carousel-item">
+                  <img src="{% static 'img/history/historia3.jpg' %}" class="d-block w-100 cube-img-rounded" alt="Historia 3">
+               </div>
+               <div class="carousel-item">
+                  <img src="{% static 'img/history/historia4.jpeg' %}" class="d-block w-100 cube-img-rounded" alt="Historia 4">
+               </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselCubeHistory" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon"></span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselCubeHistory" data-bs-slide="next">
+            <span class="carousel-control-next-icon"></span>
+            </button>
+         </div>
+      </div>
+   </div>
+</main>
+{% endblock %}
